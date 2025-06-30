@@ -24,29 +24,12 @@ Uses web sockets for real-time updates.
 
 #### Preconditions
 
-Monex remote monitoring requires the eXistdb scheduler module to be enabled. Make sure it is enabled in `$eXistdb_home/extensions/build.properties`
-
-```txt
-# Scheduler module
-include.module.scheduler = true
-```
-
-and in `$eXistdb_home/conf.xml` make sure the Scheduler module is not commented out:
+Monex remote monitoring requires the eXistdb scheduler module to be enabled. Make sure the Scheduler module is not commented out:
 
 ```xml
 <module uri="http://exist-db.org/xquery/scheduler"
 	class="org.exist.xquery.modules.scheduler.SchedulerModule" />
 ```
-
-##### Rebuilding eXistdb
-
-This needs only to be done if `include.module.scheduler` in `extensions/build.properties` was set to `false`. Then eXistdb has to be rebuild to enable the scheduler module. Shutdown the database and in the root of the eXistdb project simply call
-
-```shell
-./build.sh
-```
-
-After starting the database again, the remote monitoring tab should show no more error warnings.
 
 #### Adding an eXistdb instance to monitor
 
